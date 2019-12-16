@@ -8,8 +8,8 @@ import uuid from "uuid/v4";
 
 const initialExpenses = [
   { id: uuid(), charge: "rent", amount: 1600 },
-  { id: uuid(), charge: "food", amount: 500 },
-  { id: uuid(), charge: "drink", amount: 2600 }
+  { id: uuid(), charge: "Fufu Joint", amount: 500 },
+  { id: uuid(), charge: "Booze Moolah", amount: 2600 }
 ];
 
 function App() {
