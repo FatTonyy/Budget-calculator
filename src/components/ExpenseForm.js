@@ -1,9 +1,15 @@
 import React from "react";
 import { MdSend } from "react-icons/md";
 
-export default function ExpenseForm() {
+export default function ExpenseForm({
+  charge,
+  amount,
+  handleCharge,
+  handleAmount,
+  HandleSubmit
+}) {
   return (
-    <form>
+    <form onSubmit={HandleSubmit}>
       <div className="form-center">
         <div className="form-group">
           <label htmlFor="charge">charge</label>
@@ -13,17 +19,21 @@ export default function ExpenseForm() {
             id="charge"
             name="charge"
             placeholder="e.g booze money"
+            value={charge}
+            onChange={handleCharge}
           />
         </div>
 
         <div className="form-group">
           <label htmlFor="amount">amount</label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             id="amount"
             name="amount"
             placeholder="e.g 200"
+            value={amount}
+            onChange={handleAmount}
           />
         </div>
       </div>

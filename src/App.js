@@ -13,7 +13,34 @@ const initialExpenses = [
 ];
 
 function App() {
+  // ! ***** State Values ************
+  // all expenses, add expense
   const [expenses, setExpenses] = useState(initialExpenses);
+
+  // single expense
+  const [charge, setCharge] = useState("");
+
+  // single amount
+  const [amount, setAmount] = useState("");
+
+  // ! *****  Functionality ******************
+  const handleCharge = e => {
+    setCharge(e.target.value);
+  };
+
+  const handleAmount = e => {
+    setAmount(e.target.value);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (charge != "" && amount > 0) {
+      const singleExpense = { id: uuid(), charge, amount };
+      setExpenses([...expenses, singleExpense]);
+    } else {
+      // handle alert called
+    }
+  };
 
   return (
     <>
@@ -21,7 +48,13 @@ function App() {
       <h1>Budget Calculator</h1>
 
       <main className="App">
-        <ExpenseForm />
+        <ExpenseForm
+          charge={charge}
+          amount={amount}
+          handleAmount={handleAmount}
+          handleCharge={handleCharge}
+          handleSubmit={handleSubmit}
+        />
         <ExpenseList expenses={expenses} />
       </main>
 
