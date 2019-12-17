@@ -1,9 +1,5 @@
 import React from "react";
 
-export default function Alert() {
-  return (
-    <div>
-      <h5>hello from alert</h5>
-    </div>
-  );
+export default function Alert({ type, text }) {
+  return <div className={`alert alert-${type}`}>{text}</div>;
 }

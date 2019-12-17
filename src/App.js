@@ -22,29 +22,52 @@ function App() {
   // single amount
   const [amount, setAmount] = useState("");
 
+  //!##### Alert function ######
+  const [alert, setAlert] = useState({ show: false });
+
   // ! *****  Functionality ******************
+  // handleCharge
   const handleCharge = e => {
     setCharge(e.target.value);
   };
 
+  // handleAmount
   const handleAmount = e => {
     setAmount(e.target.value);
   };
 
+  // handle alert
+  const handleAlert = ({ type, text }) => {
+    setAlert({ show: true, type, text });
+    setTimeout(() => {
+      setAlert({ show: false });
+    }, 3000);
+  };
+
+  // handleSubmit
+
   const handleSubmit = e => {
     e.preventDefault();
-    if (charge != "" && amount > 0) {
+    if (charge !== "" && amount > 0) {
       const singleExpense = { id: uuid(), charge, amount };
       setExpenses([...expenses, singleExpense]);
+      handleAlert({ type: "success", text: "item added" });
       setCharge("");
       setAmount("");
     } else {
       // handle alert called
+      handleAlert({
+        type: "danger",
+        text: `charge cant be an empty value and amount value has to be bigger than zero`
+      });
     }
   };
 
   return (
     <>
+      {/* Alert expression */}
+      {alert.show && <Alert type={alert.type} text={alert.text} />}
+
       <Alert />
       <h1>Budget Calculator</h1>
 
