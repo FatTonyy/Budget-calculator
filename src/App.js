@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import ExpenseList from "./components/ExpenseList";
 import ExpenseForm from "./components/ExpenseForm";
@@ -37,6 +37,12 @@ function App() {
   const [id, setId] = useState(0);
   //!##### Alert function ######
   const [alert, setAlert] = useState({ show: false });
+
+  // ! *****  useEffect ******************
+  useEffect(() => {
+    console.log("called useEffect");
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+  }, [expenses]);
 
   // ! *****  Functionality ******************
   // handleCharge
