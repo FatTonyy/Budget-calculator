@@ -6,10 +6,10 @@ export default function ExpenseForm({
   amount,
   handleCharge,
   handleAmount,
-  HandleSubmit
+  handleSubmit
 }) {
   return (
-    <form onSubmit={HandleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div className="form-center">
         <div className="form-group">
           <label htmlFor="charge">charge</label>
