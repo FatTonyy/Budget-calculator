@@ -63,6 +63,21 @@ function App() {
     }
   };
 
+  // Clear all items
+  const clearItems = () => {
+    setExpenses([]);
+  };
+
+  // handle delete (delete-single item)
+  const handleDelete = id => {
+    console.log(`item deleted : ${id}`);
+  };
+
+  // handle edit (edit-single item)
+  const handleEdit = id => {
+    console.log(`item edited : ${id}`);
+  };
+
   return (
     <>
       {/* Alert expression */}
@@ -79,7 +94,12 @@ function App() {
           handleCharge={handleCharge}
           handleSubmit={handleSubmit}
         />
-        <ExpenseList expenses={expenses} />
+        <ExpenseList
+          expenses={expenses}
+          handleDelete={handleDelete}
+          handleEdit={handleEdit}
+          clearItems={clearItems}
+        />
       </main>
 
       <h1>
