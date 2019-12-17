@@ -19,7 +19,7 @@ export default function ExpenseItem({ expense, handleEdit, handleDelete }) {
           <MdEdit />
         </button>
         <button
-          className="edit-btn"
+          className="clear-btn"
           aria-label="delete button"
           onClick={() => handleDelete(id)}
         >

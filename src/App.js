@@ -66,11 +66,14 @@ function App() {
   // Clear all items
   const clearItems = () => {
     setExpenses([]);
+    handleAlert({ type: "danger", text: "all items deleted" });
   };
 
   // handle delete (delete-single item)
   const handleDelete = id => {
-    console.log(`item deleted : ${id}`);
+    let tempExpenses = expenses.filter(item => item.id !== id);
+    setExpenses(tempExpenses);
+    handleAlert({ type: "danger", text: "item deleted" });
   };
 
   // handle edit (edit-single item)
